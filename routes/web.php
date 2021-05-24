@@ -16,6 +16,8 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
+Auth::routes();
+
 Route::get('/', [HomeController::class, 'index'])->name('home');
 
 Route::middleware(['auth:sanctum', 'verified'])->get('/dashboard', function () {
@@ -29,6 +31,6 @@ Route::group(['middleware' => 'auth'], function() {
         ]);
     });
 });
-Auth::routes();
+
 Route::get('properties/property/{property}', [PropertyController::class, 'show'])->name('show.property');
 Route::get('properties', [PropertyController::class, 'filter'])->name('filter');
