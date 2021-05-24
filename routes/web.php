@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\PropertyController;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -28,6 +29,6 @@ Route::group(['middleware' => 'auth'], function() {
         ]);
     });
 });
-
+Auth::routes();
 Route::get('properties/property/{property}', [PropertyController::class, 'show'])->name('show.property');
 Route::get('properties', [PropertyController::class, 'filter'])->name('filter');
