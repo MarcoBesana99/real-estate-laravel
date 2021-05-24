@@ -303,8 +303,8 @@
         google.maps.event.addDomListener(window, 'load', initMap);
 
         let position = {
-            lat: {!! json_encode($property->latitude) !!},
-            lng: {!! json_encode($property->longitude) !!}
+            lat: parseFloat({!! json_encode($property->latitude) !!}),
+            lng: parseFloat({!! json_encode($property->longitude) !!})
         };
 
         let map = new google.maps.Map(
